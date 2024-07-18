@@ -3,18 +3,15 @@ import React, { useState } from 'react'
 import LoginForm from '../components/Auth/LoginForm';
 
 const Dashboard = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
 
     const handleLogin = () => {
       setIsLoggedIn(true);
     };
   return (
     <div>
-        {!isLoggedIn ? (
-        <div className="flex flex-col items-center justify-center w-full h-full">
-          <LoginForm onLogin={handleLogin} />
-        </div>
-      ) : (
+        {isLoggedIn && (
+
         <div className="min-h-screen flex">
         {/* Sidebar */}
         <aside className="w-64 bg-gray-800 text-white flex flex-col">
@@ -52,8 +49,8 @@ const Dashboard = () => {
           <header className="flex items-center justify-between mb-6">
             <h1 className="text-3xl font-bold">Welcome to Dashboard</h1>
             <div className="flex items-center space-x-4">
-              <a href="#" className="text-gray-700 hover:underline">Profile</a>
-              <a href="#" className="text-gray-700 hover:underline">Logout</a>
+              <a href="/profile" className="text-gray-700 hover:underline">Profile</a>
+              <a href="/login" className="text-gray-700 hover:underline">Logout</a>
             </div>
           </header>
           <main>

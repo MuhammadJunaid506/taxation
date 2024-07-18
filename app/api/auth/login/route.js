@@ -10,7 +10,6 @@ export async function POST(req) {
   try {
     // Ensure to await the req.body() method to get the parsed JSON data
     const { email, password } = await req.json();
-    console.log(email, password)
 
     // Check if email and password are provided
     if (!email || !password) {
@@ -22,7 +21,6 @@ export async function POST(req) {
 
     // Find user by email
     const user = await User.findOne({ email });
-    console.log(user)
     // If user not found, return error
     if (!user) {
       return NextResponse.json({

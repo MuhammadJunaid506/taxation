@@ -7,8 +7,12 @@ const LoginForm = ({ onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform login logic here, and then:
-    onLogin();
+    console.log("requesting")
+    const obj = {
+      email: email,
+      password : password
+    }
+    onLogin(obj);
   };
 
   return (
